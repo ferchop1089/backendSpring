@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<orm:entity-mappings version="2.1"
+	xmlns:orm="http://xmlns.jcp.org/xml/ns/persistence/orm"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd ">
+
+	<orm:named-query name="Persona.findByEdad">
+		<orm:query>SELECT p FROM Persona p WHERE p.edad = :edad</orm:query>
+	</orm:named-query>
+	
+	<orm:named-native-query
+		name="Persona.findByApellidos"
+		result-class="com.tutorial.spring.backend.entities.Persona">
+		<orm:query>SELECT * FROM person WHERE fsurmane = :papellido AND ssurmane = :sapellido</orm:query>
+	</orm:named-native-query>
+	
+	<!--<named-native-query
+		name="Todo.findBySearchTermNamedNativeOrmXml"
+	ult-class="net.petrikainulainen.springdata.jpa.todo.Todo">
+		<query>SELECT * FROM todos t WHERE LOWER(t.title) LIKE LOWER(CONCAT('%',:searchTerm, '%')) OR LOWER(t.description) LIKE LOWER(CONCAT('%',:searchTerm, '%')) ORDER BY t.title ASC</query>
+	</named-native-query>-->
+
+</orm:entity-mappings>
