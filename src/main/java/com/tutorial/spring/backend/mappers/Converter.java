@@ -10,6 +10,6 @@ public interface Converter<E,D> {
 	
 	public E toEntity(D dto);
 	
-	public List<E> toEntities(List<D> dto);
+	public List<E> toEntities(List<D> dtos);
 	
 }
