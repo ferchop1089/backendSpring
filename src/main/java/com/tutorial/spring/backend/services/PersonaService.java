@@ -68,4 +68,9 @@ public class PersonaService {
 		repository.delete(mapper.toEntity(persona));
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+	public void eliminarPorId(Integer idPersona) {
+		repository.deleteById(idPersona);
+	}
+
 }
