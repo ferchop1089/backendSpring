@@ -21,7 +21,7 @@ import com.tutorial.spring.backend.services.PersonaService;
 
 @CrossOrigin
 @RestController
-@RequestMapping(path = "/springAngularTutorial/personaServicio")
+@RequestMapping(path = "/servicios/v0")
 public class PersonaController {
 
 	@Autowired
@@ -32,29 +32,29 @@ public class PersonaController {
 		// TODO Auto-generated constructor stub
 	}
 
-	@GetMapping(path = "/buscarPorId/{id}")
+	@GetMapping(path = "/personas/{id}")
 	public PersonaDto buscarPorId(@PathVariable("id") Integer id) {
 		return service.buscarPorId(id)
 				.orElseThrow(() -> new RuntimeException("No se encontró la persona por el id: " + id));
 	}
 
-	@GetMapping(path = "/buscarTodos")
+	@GetMapping(path = "/personas")
 	public List<PersonaDto> buscarTodos() {
 		return service.buscarTodos();
 	}
 
-	@PostMapping(path = "/crear")
+	@PostMapping(path = "/personas")
 	public PersonaDto crearPersona(@RequestBody PersonaDto persona) {
 		return service.crear(persona).orElseThrow(() -> new RuntimeException("No fue posible crear la persona"));
 	}
 
-	@PutMapping(path = "/actualizar")
+	@PutMapping(path = "/personas")
 	public PersonaDto actualizarPersona(@RequestBody PersonaDto persona) {
 		return service.actualizar(persona)
 				.orElseThrow(() -> new RuntimeException("No fue posible actualizar la persona"));
 	}
 
-	@DeleteMapping(path = "/borrarPorId/{id}")
+	@DeleteMapping(path = "/personas/{id}")
 	public ResponseEntity<String> borrarPersonaPorId(@PathVariable("id") Integer id) {
 		service.eliminarPorId(id);
 		return new ResponseEntity<>("La persona ha sido eliminada", HttpStatus.OK);
