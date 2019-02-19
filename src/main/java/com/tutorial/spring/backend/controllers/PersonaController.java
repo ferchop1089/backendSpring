@@ -36,7 +36,7 @@ public class PersonaController {
 	public PersonaDto buscarPorId(@PathVariable("id") Integer id) {
 		return service.buscarPorId(id)
 				.orElseThrow(() -> new RuntimeException("No se encontró la persona por el id: " + id));
-	}
+	} 
 
 	@GetMapping(path = "/personas")
 	public List<PersonaDto> buscarTodos() {
